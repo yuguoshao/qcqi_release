@@ -1,0 +1,5 @@
+six
+django
+django-ckeditor
+django-guardian
+django-uuslug
