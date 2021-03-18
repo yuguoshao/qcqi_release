@@ -8,9 +8,11 @@ from .models import *
 # Create your views here.
 import datetime
 
-def test(request,num):
+def test(request):
+    context          = {}
     list = get_news()
-    people = get_people_list()
+    people = get_papers('all')
+    return render(request, 'people2.html', context)
     return HttpResponse(str(people))
 
 def index(request):
@@ -57,7 +59,7 @@ def people_list_web(request):
     return render(request, 'people_list.html', context)
 def people_web(request,name):
     context=get_people(name)
-    return render(request, 'people.html', context)
+    return render(request, 'people2.html', context)
 
 def theme_list_web(request):
     context={}
@@ -83,9 +85,17 @@ def conference_web(request,id):
 
 def papers_web(request):
     context={}
-    context['data']=get_papers()
+    context['data']=get_papers_cate()
     context['type']="papers"
-    return render(request, 'single_page.html', context)
+    context['list']=True
+    return render(request, 'paper.html', context)
+
+def papers_list_web(request,categroy_name):
+    context={}
+    context['data']=get_papers(categroy_name)
+    context['type']="papers"
+
+    return render(request, 'paper.html', context)
 def about_web(request):
     context={}
     context['data']=get_about()

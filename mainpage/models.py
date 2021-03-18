@@ -39,7 +39,14 @@ class people(models.Model):
     identity = models.CharField(max_length=20,blank=True)
     introduction = models.CharField(max_length=20,blank=True)
     contact = RichTextUploadingField(blank=True)
-    content = RichTextUploadingField(blank=True)
+    home = RichTextUploadingField(blank=True)
+    cv = RichTextUploadingField(blank=True)
+    pub = RichTextUploadingField(blank=True)
+    pre = RichTextUploadingField(blank=True)
+    awards = RichTextUploadingField(blank=True)
+    classes= RichTextUploadingField(blank=True)
+    links = RichTextUploadingField(blank=True)
+
     url = models.SlugField(max_length=64,editable=False,blank=True,primary_key=False)
 
     def __unicode__(self):
@@ -94,13 +101,25 @@ class banner(models.Model):
     priority = models.IntegerField()
     def __str__(self): 
         return str(self.priority)
-
+def paper_directory_path(instance, filename):
+    #文件上传到MEDIA_ROOT/user_<id>/<filename>目录中
+    return 'paper/paper_{0}/{1}'.format(filename,instance.date_add)
 class papers(models.Model):
-    date_add = models.DateField(auto_now_add=True)
-    date_change = models.DateField(auto_now=True)
+    name = models.CharField(max_length=20,blank=True)
+    date = models.DateTimeField(default=datetime.now())
     content = RichTextUploadingField(blank=True)
+    paper_file = models.FileField(upload_to=paper_directory_path,blank=True)
+    papers_categroy = models.ManyToManyField("papers_categroy")
+    def __str__(self): 
+        return str(self.name)
+
 
 class about(models.Model):
     date_add = models.DateField(auto_now_add=True)
     date_change = models.DateField(auto_now=True)
     content = RichTextUploadingField(blank=True)
+
+class papers_categroy(models.Model):
+    categroy_name=models.CharField(max_length=20,blank=True)
+    def __str__(self): 
+        return str(self.categroy_name)

@@ -40,6 +40,7 @@ urlpatterns = [
     path('conferences',views.conference_list_web),
     path('conferences/<int:id>', views.conference_web, name='conference_web'),
     path('papers',views.papers_web),
+    path('papers/<str:categroy_name>',views.papers_list_web,name='categroy_name'),
     path('about',views.about_web),
     path('',views.index),
     

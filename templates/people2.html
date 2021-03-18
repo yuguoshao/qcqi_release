@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>个人电子名片css模板 - 站长素材</title>
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js' %}"></script>
+	<![endif]-->
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+	
+	<script type="application/x-javascript">
+		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){
+			window.scrollTo(0,1);
+		}
+	</script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/amazium.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}" />
+	
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="{% static 'images/favicon.ico" />
+	<link rel="apple-touch-icon-precomposed" href="{% static 'images/apple-touch-icon.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'images/apple-touch-icon-57x57.png' %}" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'images/apple-touch-icon-72x72.png' %}" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'images/apple-touch-icon-114x114.png' %}" />
+	
+	<!-- To Top scripts -->
+	
+	<script type="text/javascript" src="{% static 'js/jquery-1.7.1.min.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'js/jquery.carouFredSel-5.5.5-packed.js' %}"></script>
+	<script src="{% static 'js/jquery.easytabs.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/smoothscroll.js' %}" type="text/javascript"></script>
+	<script src="{% static 'js/jquery.hashchange.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.easytabs.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.validate.js' %}" type="text/javascript"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+	<script src="{% static 'js/filterable.pack.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.tweet.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+  <header>
+    	<div class="row">
+            <div class="row">
+                <div class="grid_3">
+                    <div id="photo">
+                        <img src="{{img}}" alt="My Photo" />
+                    </div>
+                </div>
+                <div class="grid_9">
+                    <div class="name-wrap">
+                        <h1>{{name}}<span>{{identity}}</span></h1>
+                    </div>
+                    <div class="contact-info">
+                        {% autoescape off %}
+                                {{contact}}
+                        {% endautoescape %}
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </header>
+    <div class="row">
+    	<div class="social-icons">
+            <ul>
+                <li class="twitter"><a href="#">Twitter</a></li>
+                <li class="facebook"><a href="#">Twitter</a></li>
+                <li class="vimeo"><a href="#">Twitter</a></li>
+                <li class="buzz"><a href="#">Twitter</a></li>
+                <li class="dribble"><a href="#">Twitter</a></li>
+            </ul>
+        </div>
+    </div>    
+    <div id="tab-container" class='tab-container'>
+        <ul class='etabs'>
+            <li class='tab'><a href="#home" class="home">HOME</a></li>
+            <li class='tab'><a href="#cv" class="about">CV</a></li>
+            <li class='tab'><a href="#pub" class="social">PUBLICATIONS</a></li>
+            <li class='tab'><a href="#pre" class="contact">PRESEBTATION</a></li>
+            <li class='tab'><a href="#awards" class="contact">AWARDS</a></li>
+            <li class='tab'><a href="#classes" class="contact">CLASSES</a></li>
+            <li class='tab'><a href="#links" class="contact">LINKS</a></li>
+        </ul>
+        <div class="row">
+        	<div class="grid_12">
+            <div class='panel-container'>
+              	
+             
+                 <div id="home" class="page">
+                        <h2><span>HOME</span></h2>
+                        <div class="content-wrap">
+                            <div class="row">
+
+                                {% autoescape off %}
+                                {{home}}
+                                {% endautoescape %}
+                            </div>
+                            <div class="clearfix">&nbsp;</div>                      
+                        </div>      
+                    </div>
+
+                    <div id="cv" class="page">
+                        <h2><span>CV</span></h2>
+                        <div class="content-wrap">
+                            <div class="row">
+
+                                {% autoescape off %}
+                                {{cv}}
+                                {% endautoescape %}
+                            </div>
+                            <div class="clearfix">&nbsp;</div>                      
+                        </div>      
+                    </div>
+
+                    <div id="pub" class="page">
+                        <h2><span>PUBLICATIONS</span></h2>
+                        <div class="content-wrap">
+                            <div class="row">
+
+                                {% autoescape off %}
+                                {{pub}}
+                                {% endautoescape %}
+                            </div>
+                            <div class="clearfix">&nbsp;</div>                      
+                        </div>      
+                    </div>
+
+                    <div id="pre" class="page">
+                        <h2><span>PRESEBTATION</span></h2>
+                        <div class="content-wrap">
+                            <div class="row">
+
+                                {% autoescape off %}
+                                {{pre}}
+                                {% endautoescape %}
+                            </div>
+                            <div class="clearfix">&nbsp;</div>                      
+                        </div>      
+                    </div>
+
+                    <div id="awards" class="page">
+                        <h2><span>AWARDS</span></h2>
+                        <div class="content-wrap">
+                            <div class="row">
+
+                                {% autoescape off %}
+                                {{awards}}
+                                {% endautoescape %}
+                            </div>
+                            <div class="clearfix">&nbsp;</div>                      
+                        </div>      
+                    </div>
+
+                    <div id="classes" class="page">
+                        <h2><span>CLASSES</span></h2>
+                        <div class="content-wrap">
+                            <div class="row">
+
+                                {% autoescape off %}
+                                {{classes}}
+                                {% endautoescape %}
+                            </div>
+                            <div class="clearfix">&nbsp;</div>                      
+                        </div>      
+                    </div>
+
+                    <div id="links" class="page">
+                        <h2><span>LINKS</span></h2>
+                        <div class="content-wrap">
+                            <div class="row">
+
+                                {% autoescape off %}
+                                {{links}}
+                                {% endautoescape %}
+                            </div>
+                            <div class="clearfix">&nbsp;</div>                      
+                        </div>      
+                    </div>
+
+
+
+
+
+
+
+
+
+             </div>
+    	</div>
+    </div>
+	</div>
+    <footer>
+    	<div class="row">
+        	<div class="grid_6">
+            	Copyright © 2013 Yourname Here. 
+            </div>
+            <div class="grid_6">
+            </div>
+        </div>
+    	<div class="bottom-line">&nbsp;</div>
+    </footer>
+    
+    <p id="back-top" style="display: block;">
+        <a href="#top">&nbsp;</a>
+    </p>
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

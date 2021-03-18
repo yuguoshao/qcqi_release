@@ -44,7 +44,7 @@ def get_people_list():
     return out
 def get_people(name_want):
     v = people.objects.filter(url=name_want)[0]
-    out={'name':v.name,'img':'/media/'+str(v.img),'identity':v.identity,'contact':v.contact,'content':v.content}
+    out={'name':v.name,'img':'/media/'+str(v.img),'identity':v.identity,'contact':v.contact,'home':v.home,'cv':v.cv,'pub':v.pub,'pre':v.pre,'awards':v.awards,'classes':v.classes,'links':v.links}
     return out
 
 def get_theme_list():
@@ -66,9 +66,21 @@ def get_conference(num):
     v = conferences.objects.filter(id=num)[0]
     out={'type':'conferences','id':num,'content':v.content,'topic':v.topic}
     return out
-def get_papers():
-    v = papers.objects.all()[0]
-    out={'content':v.content}
+def get_papers_cate():
+    list = papers_categroy.objects.all()
+    out=[v.categroy_name for v in list]
+    return out
+
+def get_papers(cate):
+    if (cate=="all"):
+        lists = papers.objects.all().order_by('date')
+    else:
+        lists = papers.objects.filter(papers_categroy=cate).order_by('date')
+    t=1
+    out=[]
+    for v in lists:
+        out.append({'content':'<p>'+"["+str(t) +"]"+v.content.replace('<p>', '', 1)})
+        t=t+1
     return out
 def get_about():
     v = about.objects.all()[0]
