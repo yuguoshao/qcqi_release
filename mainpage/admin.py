@@ -12,6 +12,7 @@ admin.site.register(people_priority)
 admin.site.register(about)
 admin.site.register(papers)
 admin.site.register(papers_categroy)
+admin.site.register(classes)
 
 
 from guardian.admin import GuardedModelAdmin

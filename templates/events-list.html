@@ -154,20 +154,7 @@
                                 <li {% if type == "index" %}class="current-menu-item"{% endif %}><a href="/index">Home</a></li>
                                 <li{% if type == "people" %}class="current-menu-item"{% endif %}><a href="/people">People</a></li>
                                 <li {% if type == "themes" %}class="current-menu-item"{% endif %}><a href="/themes">Themes</a>
-                                    <ul class="backcolr">
-                                        <li><a href="events-both.html">Events - Combined</a></li>
-                                        <li><a href="events-list.html">Events - List View</a></li>
-                                        <li><a href="events-calendar.html">Events - Calander View</a></li>
-                                    </ul>
-                                </li>
-                                <li {% if type == "seminar" %}class="current-menu-item"{% endif %}><a href="/seminar">Seminar</a>
-                                    <ul class="backcolr">
-                                        <li><a href="gallery-grid.html">Gallery - Grid</a></li>
-                                        <li><a href="gallery-show.html">Gallery - SlideShow</a></li>
-                                    </ul>
-                                </li>
-                                <li {% if type == "papers" %}class="current-menu-item"{% endif %}><a href="/papers">papers</a></li>
-                                <li {% if type == "conferences" %}class="current-menu-item"{% endif %}><a href="/conferences#">Conferences</a>
+                                    <!--
                                     <ul class="backcolr">
                                         <li><a href="#">News</a></li>
                                         <li><a href="#">Get connected</a>
@@ -183,29 +170,17 @@
                                         <li><a href="#">Media</a></li>
                                         <li><a href="#">Gospel</a></li>
                                     </ul>
+                                    -->
                                 </li>
-                                <li {% if type == "news" %}class="current-menu-item"{% endif %}><a href="/news">News</a>
-                                    <ul class="backcolr">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blogpost.html">Blog Detail</a></li>
-                                        <li><a href="#">Events</a>
-                                        	<ul>
-                                                <li><a href="events-both.html">Events - Combined</a></li>
-                                                <li><a href="events-list.html">Events - List View</a></li>
-                                                <li><a href="events-calendar.html">Events - Calander View</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="sermons.html">Sermins</a></li>
-                                        <li><a href="#">Gallery</a>
-                                        	<ul>
-                                                <li><a href="gallery-grid.html">Gallery - Grid</a></li>
-                                                <li><a href="gallery-show.html">Gallery - SlideShow</a></li>
-                                            </ul>	
-                                        </li>
-                                        <li><a href="contact-us.html">Contact Us</a></li>
-                                    </ul>
+                                
+                                <li {% if type == "seminar" %}class="current-menu-item"{% endif %}><a href="/seminar">Seminar</a></li>
+                                <li {% if type == "Mini-Courses" %}class="current-menu-item"{% endif %}><a href="/Mini-Courses">Mini-Courses</a></li>
+                                <li {% if type == "papers" %}class="current-menu-item"{% endif %}><a href="/papers">Papers</a></li>
+                                <li {% if type == "conferences" %}class="current-menu-item"{% endif %}><a href="/conferences#">Conferences</a>
+                            
+                                    
                                 </li>
+                                <li {% if type == "news" %}class="current-menu-item"{% endif %}><a href="/news">News</a></li>
                                 <li {% if type == "about" %}class="current-menu-item"{% endif %}><a href="/about">About</a></li>
                             </ul>
                             <div class="clear"></div>
@@ -256,6 +231,8 @@
                     <h2 class="widget-head-border colr">Events Listing</h2>
                     {% elif type == "news" %}
                     <h2 class="widget-head-border colr">News</h2>
+                    {% elif type == "Mini-Courses" %}
+                    <h2 class="widget-head-border colr">Mini-Courses</h2>
                     {% else %}
                         ... display 3
                         {% endif %}
@@ -295,7 +272,6 @@
                         {% endfor %}
 
                         {% elif type == "news" %}
-                        ... display 2
 
                         {% for v in list %}
                         <!-- Event Single Date Start -->
@@ -317,6 +293,33 @@
                             </div>
                             <!-- Single Event End --> 
                         {% endfor %}
+
+                        {% elif type == "Mini-Courses" %}
+
+                        {% for v in list %}
+                        <!-- Event Single Date Start -->
+                        <div class="single-date-event"> 
+                            <!-- Single Event Start -->
+                            <div class="single-event">
+                                <div class="event-sec">
+                                    <div class="event-box">
+                                        <div class="event-conts">
+                                            <h4><a href="{{v.url}}">{{v.topic}}</a></h4>
+                                            <h5>{{v.category}}</h5>
+                                            <h5>Speaker:{{v.people}}</h5>
+                                            
+                                            
+                                        </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <!-- Single Event End --> 
+                        {% endfor %}
+
+
                         {% else %}
                         ... display 3
                         {% endif %}

@@ -11,14 +11,15 @@ import datetime
 def test(request):
     context          = {}
     list = get_news()
-    people = get_papers('all')
-    return render(request, 'people2.html', context)
+    people = test()
+    #return render(request, 'people2.html', context)
     return HttpResponse(str(people))
 
 def index(request):
     context          = {}
     context['banner'] = get_banner()
     context['upcoming'] = get_upcomming(5) #填写显示最近的几个
+    context['class'] = get_class_index(5) #填写显示最近的几个
     context['news'] = get_news(5) #填写显示最近的几个
     context['type']="index"
     return render(request, 'index.html', context)
@@ -30,6 +31,17 @@ def seminar_list_web(request):
     context['year'] = year
     context['list'] = get_seminar(year)
     context['type'] = "seminar"
+    context['year_list']=[i for i in range(2021,datetime.datetime.now().year+1)]
+
+    return render(request, 'events-list.html', context)
+
+def class_list_web(request):
+    year = request.GET.get('year')
+    if(year==None):year = datetime.datetime.now().year
+    context          = {}
+    context['year'] = year
+    context['list'] = get_class(year)
+    context['type'] = "Mini-Courses"
     context['year_list']=[i for i in range(2021,datetime.datetime.now().year+1)]
 
     return render(request, 'events-list.html', context)
@@ -48,13 +60,19 @@ def seminar_web(request,id):
     context          = {}
     context['seminar']=get_detail_seminar(id)
     return render(request, 'blogpost.html', context)
+def class_web(request,id):
+    context          = {}
+    context['seminar']=get_detail_class(id)
+    return render(request, 'blogpost.html', context)
 def news_web(request,id):
     context          = {}
+    context['type'] = "news"
     context['seminar']=get_detail_news(id)
     return render(request, 'blogpost.html', context)
 
 def people_list_web(request):
     context          = {}
+    context['type'] = "people"
     context['people']=get_people_list()
     return render(request, 'people_list.html', context)
 def people_web(request,name):

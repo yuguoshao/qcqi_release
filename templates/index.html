@@ -152,22 +152,9 @@
                     	<div id="smoothmenu1" class="ddsmoothmenu">
                             <ul>
                                 <li {% if type == "index" %}class="current-menu-item"{% endif %}><a href="/index">Home</a></li>
-                                <li{% if type == "people" %}class="current-menu-item"{% endif %}><a href="/people">People</a></li>
+                                <li {% if type == "people" %}class="current-menu-item"{% endif %}><a href="/people">People</a></li>
                                 <li {% if type == "themes" %}class="current-menu-item"{% endif %}><a href="/themes">Themes</a>
-                                    <ul class="backcolr">
-                                        <li><a href="events-both.html">Events - Combined</a></li>
-                                        <li><a href="events-list.html">Events - List View</a></li>
-                                        <li><a href="events-calendar.html">Events - Calander View</a></li>
-                                    </ul>
-                                </li>
-                                <li {% if type == "seminar" %}class="current-menu-item"{% endif %}><a href="/seminar">Seminar</a>
-                                    <ul class="backcolr">
-                                        <li><a href="gallery-grid.html">Gallery - Grid</a></li>
-                                        <li><a href="gallery-show.html">Gallery - SlideShow</a></li>
-                                    </ul>
-                                </li>
-                                <li {% if type == "papers" %}class="current-menu-item"{% endif %}><a href="/papers">papers</a></li>
-                                <li {% if type == "conferences" %}class="current-menu-item"{% endif %}><a href="/conferences#">Conferences</a>
+                                    <!--
                                     <ul class="backcolr">
                                         <li><a href="#">News</a></li>
                                         <li><a href="#">Get connected</a>
@@ -183,29 +170,17 @@
                                         <li><a href="#">Media</a></li>
                                         <li><a href="#">Gospel</a></li>
                                     </ul>
+                                    -->
                                 </li>
-                                <li {% if type == "news" %}class="current-menu-item"{% endif %}><a href="/news">News</a>
-                                    <ul class="backcolr">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blogpost.html">Blog Detail</a></li>
-                                        <li><a href="#">Events</a>
-                                        	<ul>
-                                                <li><a href="events-both.html">Events - Combined</a></li>
-                                                <li><a href="events-list.html">Events - List View</a></li>
-                                                <li><a href="events-calendar.html">Events - Calander View</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="sermons.html">Sermins</a></li>
-                                        <li><a href="#">Gallery</a>
-                                        	<ul>
-                                                <li><a href="gallery-grid.html">Gallery - Grid</a></li>
-                                                <li><a href="gallery-show.html">Gallery - SlideShow</a></li>
-                                            </ul>	
-                                        </li>
-                                        <li><a href="contact-us.html">Contact Us</a></li>
-                                    </ul>
+                                
+                                <li {% if type == "seminar" %}class="current-menu-item"{% endif %}><a href="/seminar">Seminar</a></li>
+                                <li {% if type == "Mini-Courses" %}class="current-menu-item"{% endif %}><a href="/Mini-Courses">Mini-Courses</a></li>
+                                <li {% if type == "papers" %}class="current-menu-item"{% endif %}><a href="/papers">Papers</a></li>
+                                <li {% if type == "conferences" %}class="current-menu-item"{% endif %}><a href="/conferences#">Conferences</a>
+                            
+                                    
                                 </li>
+                                <li {% if type == "news" %}class="current-menu-item"{% endif %}><a href="/news">News</a></li>
                                 <li {% if type == "about" %}class="current-menu-item"{% endif %}><a href="/about">About</a></li>
                             </ul>
                             <div class="clear"></div>
@@ -214,6 +189,7 @@
                     <!-- Navigation End -->
                     
                     <!-- Search Start -->
+                    <!--
                 	<div class="search">
                     	<a href="#" class="btn">&nbsp;</a>
                         <div class="searchinputs backcolr">
@@ -227,6 +203,7 @@
                             </ul>
                         </div>
                     </div>
+                    -->
                     <!-- Search End -->
                     <div class="clear"></div>
                 </div>
@@ -329,47 +306,82 @@ dignissim id sapien.
                             {% for v in news %}
                                 <h4 class="colr"><a href="{{v.url}}" class="colr">{{v.topic}}</a></h4>
                             {% endfor %}
-                            
+                            <!--
                             <p class="colr">Your membership means more than simply signing a piece of papers. Becoming a member of Stonebriar expresses your commitment to this.</p>
                             <blockquote>
                             	<p class="italic">Your membership means more than simply signing a piece of papers. Becoming a member Your membership means more than simply.</p>
                             </blockquote>
-                            
+                            -->
                             <div class="clear"></div>
                         </div>
                         <!-- Text Widget End -->
                     </div>
                     <!-- Widget PlaceHolder End -->
                     
-                    <!-- Widget PlaceHolder Start -->
+
+
                     <div class="widget-placeholder">
-                    	<!-- Donation Widget Start -->
-                    	<div class="widget donation">
-                        	<h3 class="widget-head">Help Us Reach Our Goal</h3>
-                            <div class="donation-area">
-                            	<div class="donation-detail">
-                                    <div class="raised">
-                                    	<h1 class="colr">$14,856</h1>
-                                        <p>Rased so far</p>
-                                    </div>
-                                    <div class="goal">
-                                    	<h1 class="colr">$30,000</h1>
-                                        <p>Our Goal</p>
-                                    </div>
-                                </div>
-                                <div class="donate-bar-sec">
-                                	<div class="dont-bar">
-                                    	<span class="filledbar backcolr" style="width:40%">&nbsp;</span>
-                                    </div>
-                                    <span class="zero-figre">$0</span>
-                                    <span class="end-figre">$30,000</span>
-                                </div>
+                    	<!-- Calendar Widget Start -->
+                    	<div class="widget wp-calendar">
+                        	<h3 class="widget-head">Event Calender</h3>
+                            <div class="calendar">
+                            	<ul class="months backcolr">
+                                	<li><a href="#" class="calendar-prev">&nbsp;</a></li>
+                                    <li><h4 class="white">January 2012</h4></li>
+                                    <li><a href="#" class="calendar-next">&nbsp;</a></li>
+                                </ul>
+                                <ul class="days">
+                                	<li>Mon</li>
+                                    <li>Tue</li>
+                                    <li>Wed</li>
+                                    <li>Thu</li>
+                                    <li>Fri</li>
+                                    <li>Sat</li>
+                                    <li>Sun</li>
+                                </ul>
+                                <ul class="dates">
+                                	<li class="disabled"><a href="#" class="ev-date">30</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                    <li><a href="#">7</a></li>
+                                    <li><a href="#">8</a></li>
+                                    <li><a href="#" class="ev-date">9</a></li>
+                                    <li><a href="#">10</a></li>
+                                    <li><a href="#">11</a></li>
+                                    <li><a href="#" class="ev-date">12</a></li>
+                                    <li><a href="#" class="ev-date">13</a></li>
+                                    <li><a href="#" class="ev-date">14</a></li>
+                                    <li><a href="#">15</a></li>
+                                    <li><a href="#">16</a></li>
+                                    <li><a href="#">17</a></li>
+                                    <li><a href="#">18</a></li>
+                                    <li><a href="#">19</a></li>
+                                    <li><a href="#" class="ev-date">20</a></li>
+                                    <li><a href="#">21</a></li>
+                                    <li><a href="#">22</a></li>
+                                    <li><a href="#" class="ev-date">23</a></li>
+                                    <li><a href="#">24</a></li>
+                                    <li><a href="#" class="ev-date">25</a></li>
+                                    <li><a href="#">26</a></li>
+                                    <li><a href="#">27</a></li>
+                                    <li><a href="#">28</a></li>
+                                    <li><a href="#">29</a></li>
+                                    <li><a href="#">30</a></li>
+                                    <li><a href="#">31</a></li>
+                                    <li class="disabled"><a href="#">1</a></li>
+                                    <li class="disabled"><a href="#">2</a></li>
+                                    <li class="disabled"><a href="#">3</a></li>
+                                </ul>
                             </div>
-                            <a href="#" class="buttonone">More About Cuase</a>
                         </div>
                         <!-- Calendar Widget End -->
                     </div>
                     <!-- Widget PlaceHolder End -->
+                    
                 </div>
             </div>
             <!-- Fullwidth Box End -->
@@ -438,73 +450,8 @@ dignissim id sapien.
 
 
 
-            	<!-- Half Box Start -->
-            	<div class="halfbox left">
-                	<h3 class="heading colr">Welcome to Identity Church</h3>
-                    <!-- Home Page Post Start -->
-                    <div class="home-post">
-                    	<a href="#" class="thumb"><img src="{% static 'images/img1.jpg' %}" alt="" /></a>
-                        <h4>
-                        	<a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo dolor at sapien luctus non venenatis dui lacinia. Phasellus viverra, orci ut lacinia</a>
-                        </h4>
-                        <p>
-                        	Your membership means more than simply signing a piece of papers. Becoming a member of Stonebriar expresses your commitment to this "spiritual family," A family that worships together, grows in faith together, and serves one another. 
-                        </p>
-                        <a href="#" class="readmore">Read more</a>
-                    </div>
-                    <!-- Home Page Post End -->
-                    <h3 class="heading colr">How to Becoming a Member</h3>
-                    <!-- Home Page Post Start -->
-                    <div class="home-post">
-                        <h4>
-                        	<a href="#">A family that worships together, grows in faith together, and serves one another.</a>
-                        </h4>
-                        <p>
-                        	Your membership means more than simply signing a piece of papers. Becoming a member of Stonebriar expresses your commitment to this "spiritual family," A family that worships together.Your membership means more than simply signing a piece of papers. Becoming a member of Stonebriar.
-                        </p>
-                        <p>
-                        	A family that worships together.Your membership means more than simply signing a piece of papers. Becoming a member of Stonebriar.
-                        </p>
-                        <a href="#" class="readmore">Read more</a>
-                    </div>
-                    <!-- Home Page Post End -->
-                </div>
-                <!-- Half Box End -->
-                <!-- Half Box Start -->
-                <div class="halfbox right">
-                	<h3 class="heading colr">Ministries and programs</h3>
-                    <!-- Home Page Post Start -->
-                    <div class="home-post">
-                        <a href="#" class="thumb"><img src="{% static 'images/img2.jpg' %}" alt="" /></a>
-                        <h4><a href="#">Worship and prayer</a></h4>
-                        <p>
-                            A federal judge in Ohio ruled Monday that former Rep. Steve Driehaus' defamation suit. In a case that 
-                        </p>
-                        <a href="#" class="readmore">Read more</a>
-                    </div>
-                    <!-- Home Page Post End -->
-                    <!-- Home Page Post Start -->
-                    <div class="home-post">
-                        <a href="#" class="thumb"><img src="{% static 'images/img3.jpg' %}" alt="" /></a>
-                        <h4><a href="#">Weekly Service</a></h4>
-                        <p>
-                            A federal judge in Ohio ruled Monday that former Rep. Steve Driehaus' defamation suit. In a case that 
-                        </p>
-                        <a href="#" class="readmore">Read more</a>
-                    </div>
-                    <!-- Home Page Post End -->
-                    <!-- Home Page Post Start -->
-                    <div class="home-post">
-                        <a href="#" class="thumb"><img src="{% static 'images/img4.jpg' %}" alt="" /></a>
-                        <h4><a href="#">Give up for Childrens</a></h4>
-                        <p>
-                            A federal judge in Ohio ruled Monday that former Rep. Steve Driehaus' defamation suit. In a case that 
-                        </p>
-                        <a href="#" class="readmore">Read more</a>
-                    </div>
-                    <!-- Home Page Post End -->
-                </div>
-                <!-- Half Box End -->
+
+               
             </div>
             <!-- Two Third Box End -->
             <!-- One Third Box Start -->
@@ -513,55 +460,27 @@ dignissim id sapien.
                 <div class="onethird box left">
                 	<!-- Upcoming Widget Start -->
             		<div class="widget upcoming-events">
-                    	<h3 class="widget-head-border colr">Upcomming Events</h3>
+                    	<h3 class="widget-head-border colr">Mini-Courses</h3>
                         <ul>
-                        	<li>
-                            	<div class="date">
-                                	<span>01</span>
-                                    <span>JUL</span>
-                                </div>
-                                <div class="desc">
-                                	<a href="#" class="title txthover">Aenean commodo dolor at sapien luc tus non venenatis</a>
-                                    <p class="time">12:00 PM - 1:00 PM</p>
-                                    <p class="location">Location: Lorum ipsum Church</p>
-                                </div>
-                            </li>
-                            <li>
-                            	<div class="date">
-                                	<span>05</span>
-                                    <span>JUL</span>
-                                </div>
-                                <div class="desc">
-                                	<a href="#" class="title txthover">Aenean commodo dolor at sapien luc tus non venenatis</a>
-                                    <p class="time">12:00 PM - 1:00 PM</p>
-                                    <p class="location">Location: Lorum ipsum Church</p>
-                                </div>
-                            </li>
-                            <li>
-                            	<div class="date">
-                                	<span>08</span>
-                                    <span>JUL</span>
-                                </div>
-                                <div class="desc">
-                                	<a href="#" class="title txthover">Aenean commodo dolor at sapien luc tus non venenatis</a>
-                                    <p class="time">12:00 PM - 1:00 PM</p>
-                                    <p class="location">Location: Lorum ipsum Church</p>
-                                </div>
-                            </li>
+                            {% for v in class %}
+                                
+                                <li>
+                                    <div class="desc">
+                                        <a href="{{v.url}}" class="title txthover">{{v.topic}}</a>
+                                        <p class="">{{v.category}}</p>
+                                        <p class="location">Location: {{v.location}}</p>
+                                    </div>
+                                </li>
+
+                            {% endfor %}
+                        	
+                           
                         </ul>
                     </div>
                     <!-- Upcoming Widget End -->
             	</div>
                 <!-- One Third Box End -->
-                <!-- One Third Box Start -->
-                <div class="onethird box left">
-                	<!-- Facebook Widget Start -->
-            		<div class="widget facebook-widget">
-                    	<a href="#"><img src="{% static 'images/facebook.jpg' %}" alt="" /></a>
-                    </div>
-                    <!-- Facebook Widget Start -->
-            	</div>
-                <!-- One Third Box End -->
+
             </div>
             <!-- One Third Box End -->
             <!-- Footer Scroller Start -->
@@ -569,12 +488,12 @@ dignissim id sapien.
             	<a id="logoPrevious">Previous</a>
             	<div id="logoscroll" class="scroller">
                 	<ul>
-                    	<li><a href="#"><img src="{% static 'images/logo1.gif' %}" alt="" /></a></li>
-                        <li><a href="#"><img src="{% static 'images/logo2.gif' %}" alt="" /></a></li>
-                        <li><a href="#"><img src="{% static 'images/logo3.gif' %}" alt="" /></a></li>
-                        <li><a href="#"><img src="{% static 'images/logo4.gif' %}" alt="" /></a></li>
-                        <li><a href="#"><img src="{% static 'images/logo5.gif' %}" alt="" /></a></li>
+                    	<li><a href="#"><img src="http://ymsc.tsinghua.edu.cn/images/news/lo2.png" alt="" style="background-color: rgb(193, 4, 250);width: 234px;"/></a></li>
+                        <li><a href="#"><img src="https://mathpicture.fas.harvard.edu/files/mathpicture/files/frontpagetitle_01.png?m=1502954909" alt=""/></a></li>
+                        <li><a href="#"><img src="http://nwzimg.wezhan.hk/contents/sitefiles3604/18020894/images/3279745.jpg" alt="" style="height: 70px;"/></a></li>
+                        <!-- 
                         <li><a href="#"><img src="{% static 'images/logo6.gif' %}" alt="" /></a></li>
+                        -->
                     </ul>
                 </div>
                 <a id="logoNext">Next</a>

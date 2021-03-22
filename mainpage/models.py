@@ -9,7 +9,7 @@ from uuslug import slugify
 
 def seminar_directory_path(instance, filename):
     #文件上传到MEDIA_ROOT/user_<id>/<filename>目录中
-    return 'seminar/seminar_{0}/{1}'.format(instance.date_add, filename)
+    return 'seminar/seminar_{0}/{1}'.format(instance.date_add.strftime('%Y-%m-%d'), filename)
 
 
 class seminar(models.Model):
@@ -22,6 +22,27 @@ class seminar(models.Model):
     content = RichTextUploadingField(blank=True)
     slides = models.FileField(upload_to=seminar_directory_path,blank=True)
     video = models.FileField(upload_to=seminar_directory_path,blank=True)
+    date_add = models.DateField(auto_now_add=True)
+    #url = models.URLField(default='/seminar/{0}'.format(id))
+    def __str__(self): 
+        return str(self.topic)
+
+def class_directory_path(instance, filename):
+    #文件上传到MEDIA_ROOT/user_<id>/<filename>目录中
+    return 'class/class_{0}/{1}'.format(instance.date_add.strftime('%Y-%m-%d'), filename)
+
+
+class classes(models.Model):
+    id = models.AutoField(primary_key=True)
+    topic = models.CharField(max_length=40,blank=True)
+    people = models.CharField(verbose_name="人名",max_length=20,blank=True)
+    category = models.CharField(max_length=40,choices=(('Applied Mathematics','Applied Mathematics'),('Fundamental Mathematics','Fundamental Mathematics')))
+    #date = models.DateTimeField(null=True,blank=True)
+    location = models.CharField(max_length=40,blank=True)
+    #details=models.TextField(blank=True)
+    content = RichTextUploadingField(blank=True)
+    slides = models.FileField(upload_to=class_directory_path,blank=True)
+    video = models.FileField(upload_to=class_directory_path,blank=True)
     date_add = models.DateField(auto_now_add=True)
     #url = models.URLField(default='/seminar/{0}'.format(id))
     def __str__(self): 
@@ -92,7 +113,7 @@ class themes(models.Model):
 
 def banner_directory_path(instance, filename):
     #文件上传到MEDIA_ROOT/user_<id>/<filename>目录中
-    return 'banner/banner_{0}/{1}'.format(instance.date_add, filename)
+    return 'banner/banner_{0}/{1}'.format(instance.date_add.strftime('%Y-%m-%d'), filename)
 class banner(models.Model):
     img = models.FileField(upload_to=banner_directory_path,blank=True)
     date_add = models.DateField(auto_now_add=True)
@@ -103,7 +124,7 @@ class banner(models.Model):
         return str(self.priority)
 def paper_directory_path(instance, filename):
     #文件上传到MEDIA_ROOT/user_<id>/<filename>目录中
-    return 'paper/paper_{0}/{1}'.format(filename,instance.date_add)
+    return 'paper/paper_{0}/{1}'.format(instance.date_add.strftime('%Y-%m-%d'),filename)
 class papers(models.Model):
     name = models.CharField(max_length=20,blank=True)
     date = models.DateTimeField(default=datetime.now())
