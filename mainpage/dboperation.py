@@ -82,8 +82,8 @@ def get_conference(num):
     return out
 def get_papers_cate():
     list = papers_categroy.objects.all()
-    out=[v.categroy_name for v in list]
-    return out
+    out=[{'name':v.categroy_name ,'amount':len(papers.objects.filter(papers_categroy__categroy_name=v.categroy_name))} for v in list]
+    return out,len(papers.objects.all())
 
 def get_papers(cate):
     if (cate=="all"):
@@ -102,5 +102,7 @@ def get_about():
     out={'content':v.content}
     return out
 
-def test():
-    return
+def testa():
+    v = banner.objects.all()[0]
+    out=v.date_add.strftime('%Y-%m-%d_%H-%M')
+    return out

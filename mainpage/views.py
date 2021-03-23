@@ -10,8 +10,7 @@ import datetime
 
 def test(request):
     context          = {}
-    list = get_news()
-    people = test()
+    people = testa()
     #return render(request, 'people2.html', context)
     return HttpResponse(str(people))
 
@@ -77,6 +76,7 @@ def people_list_web(request):
     return render(request, 'people_list.html', context)
 def people_web(request,name):
     context=get_people(name)
+    context['type'] = "people"
     return render(request, 'people2.html', context)
 
 def theme_list_web(request):
@@ -103,7 +103,7 @@ def conference_web(request,id):
 
 def papers_web(request):
     context={}
-    context['data']=get_papers_cate()
+    context['data'],context['amount_all']=get_papers_cate()
     context['type']="papers"
     context['list']=True
     return render(request, 'paper.html', context)

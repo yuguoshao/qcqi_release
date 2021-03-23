@@ -3,7 +3,7 @@
 <head>
     {% load static %}
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>个人电子名片css模板 - 站长素材</title>
+	<title>{{name}}</title>
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 	<!--[if lt IE 9]>
@@ -26,6 +26,15 @@
 	<link rel="stylesheet" href="{% static 'css/layout.css' %}" />
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
     <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}" />
+    <!-- CSS FROM INDEX-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/red.css' %}" title="styles1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css/blue.css' %}" title="styles2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css/gray.css' %}" title="styles3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css/orange.css' %}" title="styles4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css/green.css' %}" title="styles5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="{% static 'css/orange-red.css' %}" title="styles6" media="screen" />
+
 	
 	<!-- Favicons -->
 	<link rel="shortcut icon" href="{% static 'images/favicon.ico" />
@@ -51,12 +60,90 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
+    
+        <!-- Header Start -->
+        <div id="header">
+            <div class="rays">
+                <div class="inner">
+                    <!-- Logo Start -->
+                    <div class="logo">
+                        <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="" /></a>
+                    </div>
+                    <!-- Logo End -->
+                    <div class="right">
+                        <!-- Navigation Start -->
+                        <div class="navigation">
+                            <div id="smoothmenu1" class="ddsmoothmenu">
+                                <ul>
+                                    <li {% if type == "index" %}class="current-menu-item"{% endif %}><a href="/index">Home</a></li>
+                                    <li {% if type == "people" %}class="current-menu-item"{% endif %}><a href="/people">People</a></li>
+                                    <li {% if type == "themes" %}class="current-menu-item"{% endif %}><a href="/themes">Themes</a>
+                                        <!--
+                                        <ul class="backcolr">
+                                            <li><a href="#">News</a></li>
+                                            <li><a href="#">Get connected</a>
+                                                <ul>
+                                                    <li><a href="#">Get involved</a></li>
+                                                    <li><a href="#">Coming up</a></li>
+                                                    <li><a href="#">Media</a></li>
+                                                    <li><a href="#">Gospel</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Get involved</a></li>
+                                            <li><a href="#">Coming up</a></li>
+                                            <li><a href="#">Media</a></li>
+                                            <li><a href="#">Gospel</a></li>
+                                        </ul>
+                                        -->
+                                    </li>
+                                    
+                                    <li {% if type == "seminar" %}class="current-menu-item"{% endif %}><a href="/seminar">Seminar</a></li>
+                                    <li {% if type == "Mini-Courses" %}class="current-menu-item"{% endif %}><a href="/Mini-Courses">Mini-Courses</a></li>
+                                    <li {% if type == "papers" %}class="current-menu-item"{% endif %}><a href="/papers">Papers</a></li>
+                                    <li {% if type == "conferences" %}class="current-menu-item"{% endif %}><a href="/conferences#">Conferences</a>
+                                
+                                        
+                                    </li>
+                                    <li {% if type == "news" %}class="current-menu-item"{% endif %}><a href="/news">News</a></li>
+                                    <li {% if type == "about" %}class="current-menu-item"{% endif %}><a href="/about">About</a></li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <!-- Navigation End -->
+                        
+                        <!-- Search Start -->
+                        <!--
+                        <div class="search">
+                            <a href="#" class="btn">&nbsp;</a>
+                            <div class="searchinputs backcolr">
+                                <ul>
+                                    <li class="left">
+                                        <input name="txtSearch" value="Enter Keyword"
+                                        onfocus="if(this.value=='Enter Keyword') {this.value='';}"
+                                        onblur="if(this.value=='') {this.value='Enter Keyword';}"   type="text" />
+                                    </li>
+                                    <li class="right"><button class="colr">Search</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        -->
+                        <!-- Search End -->
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+
   <header>
     	<div class="row">
             <div class="row">
                 <div class="grid_3">
                     <div id="photo">
-                        <img src="{{img}}" alt="My Photo" />
+                        <img src="{{img}}" alt="My Photo" style="height: 160px;" />
                     </div>
                 </div>
                 <div class="grid_9">
@@ -103,7 +190,7 @@
                  <div id="home" class="page">
                         <h2><span>HOME</span></h2>
                         <div class="content-wrap">
-                            <div class="row">
+                            <div class="row" style="margin-left: 10px;">
 
                                 {% autoescape off %}
                                 {{home}}
@@ -116,7 +203,7 @@
                     <div id="cv" class="page">
                         <h2><span>CV</span></h2>
                         <div class="content-wrap">
-                            <div class="row">
+                            <div class="row" style="margin-left: 10px;">
 
                                 {% autoescape off %}
                                 {{cv}}
@@ -129,7 +216,7 @@
                     <div id="pub" class="page">
                         <h2><span>PUBLICATIONS</span></h2>
                         <div class="content-wrap">
-                            <div class="row">
+                            <div class="row" style="margin-left: 10px;">
 
                                 {% autoescape off %}
                                 {{pub}}
@@ -142,7 +229,7 @@
                     <div id="pre" class="page">
                         <h2><span>PRESEBTATION</span></h2>
                         <div class="content-wrap">
-                            <div class="row">
+                            <div class="row" style="margin-left: 10px;">
 
                                 {% autoescape off %}
                                 {{pre}}
@@ -155,7 +242,7 @@
                     <div id="awards" class="page">
                         <h2><span>AWARDS</span></h2>
                         <div class="content-wrap">
-                            <div class="row">
+                            <div class="row" style="margin-left: 10px;">
 
                                 {% autoescape off %}
                                 {{awards}}
@@ -168,7 +255,7 @@
                     <div id="classes" class="page">
                         <h2><span>CLASSES</span></h2>
                         <div class="content-wrap">
-                            <div class="row">
+                            <div class="row" style="margin-left: 10px;">
 
                                 {% autoescape off %}
                                 {{classes}}
@@ -181,7 +268,7 @@
                     <div id="links" class="page">
                         <h2><span>LINKS</span></h2>
                         <div class="content-wrap">
-                            <div class="row">
+                            <div class="row" style="margin-left: 10px;">
 
                                 {% autoescape off %}
                                 {{links}}

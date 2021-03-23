@@ -216,7 +216,7 @@
     	<div class="slider-wrapper theme-default">
             <div id="slider" class="nivoSlider">
                 {% for s in banner %} 
-                    <a href="#"><img src="{{s.img}}" title="#banner{{ forloop.counter }}" alt="" /></a>
+                    <a href="#"><img src="{{s.img}}" title="#banner{{ forloop.counter }}" alt=""/></a>
                 {% endfor %}
                 <!--<a href="#"><img src="media/banner/seminar_2021-02-09/105DF56029322EFB146A9D77EB608DE9.png" title="#banner1" alt="" /></a>
                 <a href="#"><img src="{% static 'images/banner2.jpg' %}" title="#banner2" alt="" /></a>
@@ -468,7 +468,9 @@ dignissim id sapien.
                                     <div class="desc">
                                         <a href="{{v.url}}" class="title txthover">{{v.topic}}</a>
                                         <p class="">{{v.category}}</p>
+                                        <!--
                                         <p class="location">Location: {{v.location}}</p>
+                                        -->
                                     </div>
                                 </li>
 

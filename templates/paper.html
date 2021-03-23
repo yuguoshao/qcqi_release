@@ -239,11 +239,11 @@
 
                             {% if list %}
                             <h3><a href="/papers/all">
-                                ALL
+                                ALL ({{amount_all}})
                             </a></h3>
                             {% for v in data %}
-                            <h3><a href="/papers/{{v}}">
-                                {{v}}
+                            <h3><a href="/papers/{{v.name}}">
+                                {{v.name}} ({{v.amount}})
                             </a></h3>
                             {% endfor %}
                             {% else %}
