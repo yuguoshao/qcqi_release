@@ -12,7 +12,7 @@ def test(request):
     context          = {}
     people = testa()
     #return render(request, 'people2.html', context)
-    return HttpResponse(str(people))
+    return HttpResponse(people)
 
 def index(request):
     context          = {}
@@ -21,6 +21,7 @@ def index(request):
     context['class'] = get_class_index(5) #填写显示最近的几个
     context['news'] = get_news(5) #填写显示最近的几个
     context['type']="index"
+    context['table'],context['year'],context['month']=get_date_table()
     return render(request, 'index.html', context)
 
 def seminar_list_web(request):

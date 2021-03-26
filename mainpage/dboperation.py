@@ -1,5 +1,8 @@
 from .models import *
 from datetime import datetime
+import calendar
+from calendar import Calendar
+
 def get_banner():
     list = banner.objects.order_by("priority").all()
     out=[{'img':'media/'+str(v.img) , 'title':v.title,'content':v.content} for v in list]
@@ -103,6 +106,34 @@ def get_about():
     return out
 
 def testa():
-    v = banner.objects.all()[0]
-    out=v.date_add.strftime('%Y-%m-%d_%H-%M')
-    return out
+    c = Calendar(firstweekday=0)
+    out=calendar.HTMLCalendar(firstweekday=0)
+    return datetime.now()
+
+def get_date_table():
+    year=datetime.now().year
+    month=datetime.now().month
+    day=datetime.now().day
+    c = Calendar(firstweekday=0)
+    table=[eval(x.strftime("{'year':%Y,'month':%-m,'day':%-d}")) for x in c.itermonthdates(year,month)]
+    class_table=get_up_date(year,month)
+    for x in table:
+        if x in class_table:
+            x['up']=True
+        else:
+            x['up']=False
+        if x['month']==month:
+            x['show']=True
+            if x['day']==day:
+                x['today']=True
+            else:
+                x['today']=False
+        else:
+            x['show']=False
+        
+    return table,year,datetime.now().strftime("%b")
+def get_up_date(year,month):
+    list=seminar.objects.filter(date__year=year)
+    out=[{'type':'seminar','url':'seminar/'+str(v.id),'year':v.date.strftime('%Y') , 'month_b':v.date.strftime('%b'),'day':v.date.strftime('%d'),'time':v.date.strftime("%I:%M%p"),'people':v.people,'topic':v.topic,'location':v.location} for v in list]
+    day=[{'year':int(v.date.strftime('%Y')) , 'month':int(v.date.strftime('%-m')),'day':int(v.date.strftime('%-d'))} for v in list]
+    return day
