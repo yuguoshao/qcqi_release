@@ -48,5 +48,8 @@ urlpatterns = [
     path('about',views.about_web),
     path('',views.index),
     path('forum/', include(machina_urls)),
+    path('qcqi_account/', include('qcqi_account.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

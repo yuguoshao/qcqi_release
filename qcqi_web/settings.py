@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainpage',
+    'qcqi_account',
     'ckeditor',#富文本编辑器
     'ckeditor_uploader',
     'guardian',#行级权限执行器
-    'django.contrib.sites',
+    #'django.contrib.sites',
+    
 
 
     # Machina dependencies:
@@ -87,7 +89,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),MACHINA_MAIN_TEMPLATE_DIR,],
-        'APP_DIRS': True,
+        #'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -190,3 +192,4 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+LOGIN_REDIRECT_URL = '/qcqi_account'

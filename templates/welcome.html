@@ -1,0 +1,21 @@
+
+
+
+
+  {% if user.is_authenticated %}
+     <h1>欢迎，Welcome  {{ user.get_username }}</h1>
+     <h1><a href="{% url 'logout'%}?next=/qcqi_account">Logout登出</a></h1>
+     <h1><a href="{% url 'password_change'%}?next=/qcqi_account">Change_Password更改密码</a></h1>
+    </br>
+    </br>
+    <h2>请选择跳转页面</h2>
+    <h2><a href="/forum">FORUM论坛</a></h2>
+    <h2><a href="/admin">
+        Homepage background management主页后台管理
+        
+        </a></h2>
+
+   {% else %}
+   <h1>欢迎，请先登录 Login First</h1>
+     <h1><a href="{% url 'login'%}?next=/qcqi_account">Login 登录</a></h1>
+   {% endif %} 
