@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.static import serve
 from . import settings
+from machina import urls as machina_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -46,5 +47,6 @@ urlpatterns = [
     path('papers/<str:categroy_name>',views.papers_list_web,name='categroy_name'),
     path('about',views.about_web),
     path('',views.index),
+    path('forum/', include(machina_urls)),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

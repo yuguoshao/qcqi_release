@@ -3,3 +3,4 @@ django
 django-ckeditor
 django-guardian
 django-uuslug
+django-machina
