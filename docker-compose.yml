@@ -14,7 +14,7 @@ services:
   app:
     restart: always
     build: .  # '点'代表当前目录
-    command: "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
@@ -23,7 +23,6 @@ services:
       - db
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin
     ports:
       - "8001:80"
     environment:
