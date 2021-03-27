@@ -3,4 +3,10 @@ django
 django-ckeditor
 django-guardian
 django-uuslug
+django-mptt
+django-haystack
+django-widget-tweaks
+django-markdown2
+Pillow
+mysqlclient
 #django-machina

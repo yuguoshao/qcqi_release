@@ -1,10 +1,35 @@
 version: "3"
 services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./mysql:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=HUSTsvo123456
+      - MYSQL_DATABASE=django_app
+
   app:
     restart: always
     build: .  # '点'代表当前目录
-    command: "python3 manage.py runserver 0.0.0.0:8000"
+    command: "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "8001:80"
+    environment:
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "HUSTsvo123456"
+      MYSQL_ROOT_PASSWORD: "HUSTsvo123456"
+      PMA_HOST: db
+    depends_on:
+      - db
