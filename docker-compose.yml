@@ -8,7 +8,7 @@ services:
       - "3306:3306"
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=HUSTsvo123456
+      - MYSQL_ROOT_PASSWORD=WDugV3Mpfj8uREPzjGcB
       - MYSQL_DATABASE=django_app
 
   app:
@@ -27,8 +27,8 @@ services:
       - "8001:80"
     environment:
       MYSQL_USER: "root"
-      MYSQL_PASSWORD: "HUSTsvo123456"
-      MYSQL_ROOT_PASSWORD: "HUSTsvo123456"
+      MYSQL_PASSWORD: "WDugV3Mpfj8uREPzjGcB"
+      MYSQL_ROOT_PASSWORD: "WDugV3Mpfj8uREPzjGcB"
       PMA_HOST: db
     depends_on:
       - db
